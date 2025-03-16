@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/usuarios")
-public class CrudController {
+public class UsuarioController {
 
     @Autowired
     private UsuarioRepository repository;
