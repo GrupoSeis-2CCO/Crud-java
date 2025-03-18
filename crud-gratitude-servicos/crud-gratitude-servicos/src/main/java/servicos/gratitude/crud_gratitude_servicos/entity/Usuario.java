@@ -1,8 +1,12 @@
 package servicos.gratitude.crud_gratitude_servicos.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDate;
 
@@ -13,22 +17,26 @@ public class Usuario {
     private Integer id;
 
     @NotBlank(message = "Nome Inválido")
+    @Length(min = 3,max = 255 ,message = "Nome Inválido")
     private String nome;
 
     @NotBlank(message = "Cpf Inválido")
-    @Size(min = 11,max = 11,message = "Cpf deve possuir 11 caracteres")
+    @CPF(message = "Cpf Inválido")
     private String cpf;
 
     @NotBlank(message = "Email Inválido")
+    @Email(message = "Email Inválido")
     private String email;
 
     @NotBlank
     private String senha;
 
     @NotBlank
+    @Length(min = 3,max = 255)
     private String cargo;
 
-    @NotBlank
+    @NotBlank(message = "Data Inválida")
+    @Past(message = "Data Inválida")
     private LocalDate dataNasc;
 
     public Integer getId() {
