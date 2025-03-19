@@ -35,9 +35,6 @@ public class Usuario {
     @Length(min = 3,max = 255)
     private String cargo;
 
-    @NotBlank(message = "Data Inválida")
-    @Past(message = "Data Inválida")
-    private LocalDate dataNasc;
 
     public Integer getId() {
         return id;
@@ -87,11 +84,4 @@ public class Usuario {
         this.cargo = cargo;
     }
 
-    public LocalDate getDataNasc() {
-        return dataNasc;
-    }
-
-    public void setDataNasc(LocalDate dataNasc) {
-        this.dataNasc = dataNasc;
-    }
 }
